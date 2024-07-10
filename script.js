@@ -197,10 +197,10 @@ function startGame(assignedRoles) {
     // Ajouter un bouton pour passer à la question suivante
     const nextButton = document.createElement('button');
     nextButton.type = 'button';
+    nextButton.className = 'fixed-button';
     nextButton.textContent = 'Question suivante';
     nextButton.addEventListener('click', nextTurn);
-    playerNamesContainer.insertBefore(nextButton, questionContainer);
-
-    // Démarrer le jeu en posant la première question
-    nextTurn();
+    document.body.appendChild(nextButton);
+ //Démarrer le jeu en posant la première question
+nextTurn();
 }

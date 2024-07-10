@@ -71,3 +71,16 @@ button {
     border-radius: 4px;
     background-color: #eef;
 }
+.fixed-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    z-index: 1000; /* Assure que le bouton reste au-dessus des autres éléments */
+}
