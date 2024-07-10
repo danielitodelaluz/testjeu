@@ -29,7 +29,41 @@ const roles = [
     }
 ];
 
-const questions = Array.from({ length: 20 }, (_, i) => `Question ${i + 1}`);
+const questions = [
+    "As-tu déjà envoyé des sextos ? À qui ?",
+    "Cite 3 fluides qui peuvent hydrater le visage.",
+    "Quelle est la partie du corps la plus sexy de ton voisin de gauche ?",
+    "Ton fantasme le plus inavouable ?",
+    "Décrit ton meilleur orgasme en détail.",
+    "Quelle est la chose la plus étrange que tu aies utilisée comme sex toy ?",
+    "As-tu déjà été surpris en plein acte ? Raconte.",
+    "Quelle est ta position sexuelle préférée ?",
+    "Quel est ton plus grand complexe physique au lit ?",
+    "Quelle est la chose la plus étrange qui t’excite ?",
+    "Quel est ton plus grand talent au lit ?",
+    "Quelle est la chose la plus embarrassante que tu aies dite pendant l’acte ?",
+    "Quel est le rôle le plus étrange que tu aies joué pendant l’acte ?",
+    "Quelle est la chose la plus étrange que tu aies faite pour satisfaire un partenaire ?",
+    "Quel est le fantasme le plus étrange que tu aies réalisé ?",
+    "Quelle est la chose la plus embarrassante que quelqu’un t’aie demandé de faire au lit ?",
+    "Quel est le secret le plus inavouable concernant ta vie sexuelle ?",
+    "Quel est le nombre de partenaires sexuels que tu as eus ?",
+    "Quelle est la chose la plus extrême que tu aies faite en matière de BDSM ?",
+    "Touche et devine la taille de la personne de gauche (la poitrine ou les fesses, hein).",
+    "Qui pourrait avoir un OnlyFans ?",
+    "Qui pourrait avoir participé à un film de cul ?",
+    "Qui pourrait avoir un penchant pour le BDSM ?",
+    "Qui pourrait déjà avoir eu une attirance pour le partenaire d’un/e ami/e ?",
+    "As-tu déjà eu des relations sexuelles avec un/e ex de l’un de tes amis ?",
+    "As-tu déjà eu des relations sexuelles sous l’influence de drogues ou d’alcool ?",
+    "As-tu déjà fait quelque chose de sexuel dans le lieu de travail ?",
+    "As-tu déjà participé à des jeux de rôle sexuels ? Si oui, quels étaient les personnages ?",
+    "Qui pourrait avoir eu le plus de partenaires sexuels dans cette pièce ?",
+    "Qui pourrait avoir le fantasme le plus bizarre ?",
+    "Qui pourrait avoir déjà trompé son/sa partenaire ?",
+    "Qui pourrait être le plus aventureux sexuellement ?",
+    "Tu préfères coucher avec ta mère dans le corps de ta meuf ou ta meuf dans le corps de ta mère ?"
+];
 
 document.getElementById('playerForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -90,6 +124,11 @@ function handlePlayerNamesSubmit() {
     startButton.textContent = 'Commencer';
     startButton.addEventListener('click', () => startGame(assignedRoles));
     playerNamesContainer.appendChild(startButton);
+
+    // Ajouter le conteneur pour les questions
+    const questionContainer = document.createElement('div');
+    questionContainer.id = 'questionContainer';
+    playerNamesContainer.appendChild(questionContainer);
 }
 
 function assignRoles(playerNames) {
@@ -118,7 +157,8 @@ function displayAssignedRoles(assignedRoles) {
 
 function startGame(assignedRoles) {
     const playerNamesContainer = document.getElementById('playerNamesContainer');
-    playerNamesContainer.innerHTML = ''; // Réinitialiser le conteneur
+    const questionContainer = document.getElementById('questionContainer');
+    questionContainer.innerHTML = ''; // Réinitialiser le conteneur
     const remainingQuestions = [...questions];
     let currentPlayerIndex = 0;
 
@@ -135,18 +175,18 @@ function startGame(assignedRoles) {
         const questionElement = document.createElement('div');
         questionElement.className = 'question';
         questionElement.innerHTML = `<strong>${currentPlayer.player}</strong>, ${currentQuestion}`;
-        playerNamesContainer.appendChild(questionElement);
+        questionContainer.appendChild(questionElement);
 
         currentPlayerIndex = (currentPlayerIndex + 1) % assignedRoles.length;
     }
-
-    // Démarrer le jeu en posant la première question
-    nextTurn();
 
     // Ajouter un bouton pour passer à la question suivante
     const nextButton = document.createElement('button');
     nextButton.type = 'button';
     nextButton.textContent = 'Question suivante';
     nextButton.addEventListener('click', nextTurn);
-    playerNamesContainer.appendChild(nextButton);
+    playerNamesContainer.insertBefore(nextButton, questionContainer);
+
+    // Démarrer le jeu en posant la première question
+    nextTurn();
 }
