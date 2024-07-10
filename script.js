@@ -62,7 +62,21 @@ const questions = [
     "Qui pourrait avoir le fantasme le plus bizarre ?",
     "Qui pourrait avoir déjà trompé son/sa partenaire ?",
     "Qui pourrait être le plus aventureux sexuellement ?",
-    "Tu préfères coucher avec ta mère dans le corps de ta meuf ou ta meuf dans le corps de ta mère ?"
+    "Tu préfères coucher avec ta mère dans le corps de ta meuf ou ta meuf dans le corps de ta mère ?",
+    "Yoann sors de la pièce",
+    "Le juge te donne un truc a faire avant de boire si tu oublies tu bois double",
+    "Vote : pour ou contre embrassé après avoir sucé ?", 
+    "Vote : pour ou contre les RP sexuels",
+    "Vote : pour les mecs seins ou fesses pour les meufs dos ou abdos",
+    "Prends 5 gorgées (cheh)",
+    "Qui serait le plus succeptible d'avoir des cheveux bleus ?",
+    "Qui serait le plus succeptible d'être gay ?",
+    "Quelle est la taille idéale pour un penis ?",
+    "Quelle est la taille de bonnet idéale ?",
+    "Sort la blague la plus raciste possible (si le publique juge que ce n'est pas assez raciste tu prends 5 gorgées",
+    "Vote : avoir le sida ou avoir le cancer",
+    "Quel est le plus gros défault de la personne à ta gauche ?",
+    "Qu'est ce qui t'enerve chez la personne à ta droite ?"
 ];
 
 document.getElementById('playerForm').addEventListener('submit', function(event) {
