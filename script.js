@@ -76,7 +76,8 @@ const questions = [
     "Sort la blague la plus raciste possible (si le publique juge que ce n'est pas assez raciste tu prends 5 gorgées",
     "Vote : avoir le sida ou avoir le cancer",
     "Quel est le plus gros défault de la personne à ta gauche ?",
-    "Qu'est ce qui t'enerve chez la personne à ta droite ?"
+    "Qu'est ce qui t'enerve chez la personne à ta droite ?",
+    "Quand as tu jouis pour la derniere fois"
 ];
 
 document.getElementById('playerForm').addEventListener('submit', function(event) {
