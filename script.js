@@ -12,8 +12,8 @@ const roles = [
         rule: "Ce joueur doit deviner les réponses des autres avant qu’ils ne répondent. S’il devine juste, la personne devinée boit. Il doit tenter de deviner au moins une fois par tour. S’il ne le fait pas, il boit."
     },
     {
-        name: "Le Menteur",
-        rule: "Ce joueur doit mentir au moins une fois par tour. Les autres doivent deviner quand il ment. Si personne ne devine, il choisit qui boit. S’il ne ment pas une fois par tour, il boit."
+        name: "Cupidon",
+        rule: "Lie 2 joueurs par les liens sacrés de l'alcool"
     },
     {
         name: "Le Doubleur",
@@ -34,7 +34,7 @@ const questions = [
     "Cite 3 fluides qui peuvent hydrater le visage.",
     "Quelle est la partie du corps la plus sexy de ton voisin de gauche ?",
     "Ton fantasme le plus inavouable ?",
-    "Décrit ton meilleur orgasme en détail.",
+    "Décris ton meilleur orgasme en détail.",
     "Quelle est la chose la plus étrange que tu aies utilisée comme sex toy ?",
     "As-tu déjà été surpris en plein acte ? Raconte.",
     "Quelle est ta position sexuelle préférée ?",
@@ -45,7 +45,7 @@ const questions = [
     "Quel est le rôle le plus étrange que tu aies joué pendant l’acte ?",
     "Quelle est la chose la plus étrange que tu aies faite pour satisfaire un partenaire ?",
     "Quel est le fantasme le plus étrange que tu aies réalisé ?",
-    "Quelle est la chose la plus embarrassante que quelqu’un t’aie demandé de faire au lit ?",
+    "Quelle est la chose la plus embarrassante que quelqu’un t’ait demandé de faire au lit ?",
     "Quel est le secret le plus inavouable concernant ta vie sexuelle ?",
     "Quel est le nombre de partenaires sexuels que tu as eus ?",
     "Quelle est la chose la plus extrême que tu aies faite en matière de BDSM ?",
@@ -56,28 +56,44 @@ const questions = [
     "Qui pourrait déjà avoir eu une attirance pour le partenaire d’un/e ami/e ?",
     "As-tu déjà eu des relations sexuelles avec un/e ex de l’un de tes amis ?",
     "As-tu déjà eu des relations sexuelles sous l’influence de drogues ou d’alcool ?",
-    "As-tu déjà fait quelque chose de sexuel dans le lieu de travail ?",
+    "As-tu déjà fait quelque chose de sexuel sur le lieu de travail ?",
     "As-tu déjà participé à des jeux de rôle sexuels ? Si oui, quels étaient les personnages ?",
     "Qui pourrait avoir eu le plus de partenaires sexuels dans cette pièce ?",
     "Qui pourrait avoir le fantasme le plus bizarre ?",
     "Qui pourrait avoir déjà trompé son/sa partenaire ?",
     "Qui pourrait être le plus aventureux sexuellement ?",
     "Tu préfères coucher avec ta mère dans le corps de ta meuf ou ta meuf dans le corps de ta mère ?",
-    "Yoann sors de la pièce",
-    "Le juge te donne un truc a faire avant de boire si tu oublies tu bois double",
-    "Vote : pour ou contre embrassé après avoir sucé ?", 
+    "Yoann, sors de la pièce",
+    "Le juge te donne un truc à faire avant de boire, si tu oublies, tu bois double.",
+    "Vote : pour ou contre embrasser après avoir sucé ?",
     "Vote : pour ou contre les RP sexuels",
-    "Vote : pour les mecs seins ou fesses pour les meufs dos ou abdos",
+    "Vote : pour les mecs, seins ou fesses ; pour les meufs, dos ou abdos ?",
     "Prends 5 gorgées (cheh)",
-    "Qui serait le plus succeptible d'avoir des cheveux bleus ?",
-    "Qui serait le plus succeptible d'être gay ?",
-    "Quelle est la taille idéale pour un penis ?",
+    "Qui serait le plus susceptible d'avoir des cheveux bleus ?",
+    "Qui serait le plus susceptible d'être gay ?",
+    "Quelle est la taille idéale pour un pénis ?",
     "Quelle est la taille de bonnet idéale ?",
-    "Sort la blague la plus raciste possible (si le publique juge que ce n'est pas assez raciste tu prends 5 gorgées",
+    "Sors la blague la plus raciste possible (si le public juge que ce n'est pas assez raciste, tu prends 5 gorgées)",
     "Vote : avoir le sida ou avoir le cancer",
-    "Quel est le plus gros défault de la personne à ta gauche ?",
-    "Qu'est ce qui t'enerve chez la personne à ta droite ?",
-    "Quand as tu jouis pour la derniere fois"
+    "Quel est le plus gros défaut de la personne à ta gauche ?",
+    "Qu'est-ce qui t'énerve chez la personne à ta droite ?",
+    "Quand as-tu joui pour la dernière fois ?",
+    "Quelle est ta plus grande peur liée à ta vie sexuelle ?",
+    "Quel est le rêve érotique le plus bizarre que tu aies eu ?",
+    "Quelle est ta plus grande déception sexuelle ?",
+    "Laisse le jouer à ta droite te poser une question",
+    "Ton voisin de droite et toi meme devez lancer un cri de guerre. Le juge détermine le gagnant",
+    "Revèle la taille de ton sexe/bonnet",
+    "Révèle le nom de ton pire coup",
+    "Quelle est la personne la plus ennuyante ici",
+    "Quel est le nom de la personne la plus hypocrite que tu connaisses ?",
+    "Quel(le) ami(e) t’a déjà trahi(e) et comment ?",
+    "Qui est la personne la plus immature ici?",
+    "Raconte ta plus grosse honte",
+    "Quel est le secret le plus honteux que tu gardes sur un(e) ami(e) ici présent(e) ?",
+    "Qui, parmi tes connaissances, a la plus mauvaise influence sur toi ?",
+    "Qui est la personne la plus superficielle ici ?",
+    "Qui ici est le plus susceptible de te trahir pour des raisons égoïstes ?"
 ];
 
 document.getElementById('playerForm').addEventListener('submit', function(event) {
@@ -88,8 +104,8 @@ document.getElementById('playerForm').addEventListener('submit', function(event)
     const validationElement = document.getElementById('validation');
     const playerNamesContainer = document.getElementById('playerNamesContainer');
 
-    if (numPlayers < 2 || numPlayers > 10) {
-        errorElement.textContent = "Le nombre de joueurs doit être compris entre 2 et 10.";
+    if (numPlayers < 2 || numPlayers > 7) {
+        errorElement.textContent = "Le nombre de joueurs doit être compris entre 2 et 7.";
         validationElement.textContent = "";
         playerNamesContainer.innerHTML = "";
     } else {
@@ -110,7 +126,7 @@ document.getElementById('playerForm').addEventListener('submit', function(event)
         // Ajouter un bouton pour soumettre les noms des joueurs
         const submitButton = document.createElement('button');
         submitButton.type = 'button';
-        submitButton.textContent = 'Soumettre les noms';
+        submitButton.textContent = 'Valider les noms';
         submitButton.addEventListener('click', handlePlayerNamesSubmit);
         playerNamesContainer.appendChild(submitButton);
 
