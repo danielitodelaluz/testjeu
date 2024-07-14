@@ -1,11 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-y: auto; /* Permet le défilement vertical */
 }
 
 .container {
@@ -14,6 +12,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 20px; /* Ajoute de l'espace autour du conteneur */
 }
 
 h1 {
@@ -71,9 +70,10 @@ button {
     border-radius: 4px;
     background-color: #eef;
 }
+
 .fixed-button {
     position: fixed;
-    top: 20px;
+    bottom: 20px; /* Change le bouton pour le placer en bas de la page */
     right: 20px;
     padding: 10px 20px;
     font-size: 16px;

@@ -96,6 +96,7 @@ const questions = [
     "Qui ici est le plus susceptible de te trahir pour des raisons égoïstes ?"
 ];
 
+
 document.getElementById('playerForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
@@ -202,10 +203,11 @@ function startGame(assignedRoles) {
         const currentQuestionIndex = Math.floor(Math.random() * remainingQuestions.length);
         const currentQuestion = remainingQuestions.splice(currentQuestionIndex, 1)[0];
         const currentPlayer = assignedRoles[currentPlayerIndex];
+        const sips = Math.floor(Math.random() * 7) + 2; // Nombre de gorgées aléatoire entre 2 et 8
 
         const questionElement = document.createElement('div');
         questionElement.className = 'question';
-        questionElement.innerHTML = `<strong>${currentPlayer.player}</strong>, ${currentQuestion}`;
+        questionElement.innerHTML = `<strong>${currentPlayer.player}</strong>, ${currentQuestion} <br><em>Nombre de gorgées : ${sips}</em>`;
         questionContainer.appendChild(questionElement);
 
         currentPlayerIndex = (currentPlayerIndex + 1) % assignedRoles.length;
@@ -218,6 +220,7 @@ function startGame(assignedRoles) {
     nextButton.textContent = 'Question suivante';
     nextButton.addEventListener('click', nextTurn);
     document.body.appendChild(nextButton);
- //Démarrer le jeu en posant la première question
-nextTurn();
+
+    // Démarrer le jeu en posant la première question
+    nextTurn();
 }
