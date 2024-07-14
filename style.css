@@ -4,6 +4,9 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     overflow-y: auto; /* Permet le défilement vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
@@ -13,6 +16,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 20px; /* Ajoute de l'espace autour du conteneur */
+    width: 80%;
+    max-width: 800px;
 }
 
 h1 {
@@ -73,8 +78,9 @@ button {
 
 .fixed-button {
     position: fixed;
-    bottom: 20px; /* Change le bouton pour le placer en bas de la page */
-    right: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -83,4 +89,8 @@ button {
     border: none;
     border-radius: 5px;
     z-index: 1000; /* Assure que le bouton reste au-dessus des autres éléments */
+}
+
+#questionContainer {
+    margin-bottom: 80px; /* Ajoute de l'espace pour le bouton fixe */
 }

@@ -96,7 +96,6 @@ const questions = [
     "Qui ici est le plus susceptible de te trahir pour des raisons égoïstes ?"
 ];
 
-
 document.getElementById('playerForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
