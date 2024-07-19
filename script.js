@@ -93,7 +93,19 @@ const questions = [
     "Quel est le secret le plus honteux que tu gardes sur un(e) ami(e) ici présent(e) ?",
     "Qui, parmi tes connaissances, a la plus mauvaise influence sur toi ?",
     "Qui est la personne la plus superficielle ici ?",
-    "Qui ici est le plus susceptible de te trahir pour des raisons égoïstes ?"
+    "Qui ici est le plus susceptible de te trahir pour des raisons égoïstes ?", 
+    "Choisis une personne de la pièce et dis nous quels sont les mots que tu utilises pour la décrire à des amis qui ne la connaissent pas ",
+    "Quelle différence entre toi et un joueur de la pièce apprécies tu ?",
+    "Si tu devais décrire la personne à ta gauche en trois mots que dirais-tu ?",
+    "C’était quoi ta première impression de la personne à ta droite et est-ce qu’elle a changé ?",
+    "À quel red flag fais tu le plus attention avant de te mettre avec qql ?",
+    "Si on te donnait accès à tout ceux que les gens pensent de toi, voudrais tu le savoir ? Pourquoi ou pourquoi pas ?",
+    "Qui dans ta vie ne te parlerait plus si tu arrêter de leur parler en premier ?",
+    "As tu un ami que tu regrettes d’avoir perdu de vue ? ",
+    "Qui sont les cinq personnes dont tu te sens le plus proche ?",
+    "Qui aimerais tu ne jamais avoir rencontré ?",
+    "A quel point es tu éloigné de la personne que tu pensais être aujourd’hui ?",
+    "Y’a t’il un sentiment d’une relation passée qui te manque ? (amicale/amour)",
 ];
 
 document.getElementById('playerForm').addEventListener('submit', function(event) {
